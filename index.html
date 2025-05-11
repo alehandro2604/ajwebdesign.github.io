@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aleandro | AJWebDesign</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+  <style>
+    /* Force nav to display */
+    nav {
+      display: flex !important;
+      opacity: 1 !important;
+      visibility: visible !important;
+      z-index: 1000 !important;
+    }
+  </style>
+</head>
+<body>
+  <div class="cursor"></div>
+  <nav>
+    <div class="logo">AJWebDesign</div>
+    <div class="menu-toggle">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <div class="nav-links">
+      <ul>
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <a href="contact.html" class="nav-btn">Hire Me</a>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-content">
+      <h1 class="text-reveal">Aleahndro</h1>
+      <h2 class="text-reveal">Web Designer & Developer</h2>
+      <p class="text-reveal">Creating modern digital experiences</p>
+      <a href="contact.html" class="cta-btn">Get in touch</a>
+    </div>
+    <div id="hero-3d" class="object-rotate" data-object="sphere"></div>
+  </section>
+
+  <section class="services fade-in-section">
+    <h2>My Services</h2>
+    <div class="services-grid stagger-container">
+      <div class="service-card stagger-item">
+        <div class="service-icon">🎨</div>
+        <h3>Web Design</h3>
+        <p>Creating beautiful, modern interfaces with attention to detail and user experience.</p>
+      </div>
+      <div class="service-card stagger-item">
+        <div class="service-icon">💻</div>
+        <h3>Web Development</h3>
+        <p>Building responsive, fast-loading websites with clean and efficient code.</p>
+      </div>
+      <div class="service-card stagger-item">
+        <div class="service-icon">✨</div>
+        <h3>Interactive Experiences</h3>
+        <p>Adding life to websites with animations and 3D elements that engage users.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="featured-projects">
+    <h2>Featured Projects</h2>
+    <div class="projects-showcase">
+      <div class="project-card">
+        <div class="project-image"></div>
+        <div class="project-info">
+          <h3>E-Commerce Website</h3>
+          <p>A modern online store with responsive design</p>
+          <a href="projects.html" class="project-link">View Details</a>
+        </div>
+      </div>
+      <div class="project-card">
+        <div class="project-image"></div>
+        <div class="project-info">
+          <h3>Portfolio Template</h3>
+          <p>Interactive portfolio with 3D elements</p>
+          <a href="projects.html" class="project-link">View Details</a>
+        </div>
+      </div>
+    </div>
+    <div class="view-all">
+      <a href="projects.html" class="view-all-btn">View All Projects</a>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="cta-decoration"></div>
+    <div class="cta-content">
+      <h2>Let's Work Together</h2>
+      <p>Have a project in mind? I'd love to help bring your vision to life.</p>
+      <a href="contact.html" class="cta-btn">Get in Touch</a>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-info">
+        <div class="footer-logo">AJWebDesign</div>
+        <p>Creating modern digital experiences that stand out.</p>
+        <div class="social-links">
+          <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+          <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#" class="social-icon"><i class="fab fa-github"></i></a>
+        </div>
+      </div>
+      
+      <div class="footer-newsletter">
+        <h3>Subscribe to my newsletter</h3>
+        <p>Get updates on my latest projects and web design tips.</p>
+        <form id="newsletter-form" class="newsletter-form">
+          <input type="email" id="subscriber-email" placeholder="Your email address" required>
+          <button type="submit" class="subscribe-btn">Subscribe</button>
+        </form>
+        <div id="subscription-message"></div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2023 AJWebDesign. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+  <script>
+    // Debug script to ensure nav is visible
+    document.addEventListener('DOMContentLoaded', function() {
+      console.log('DOM loaded, checking nav visibility');
+      const nav = document.querySelector('nav');
+      if (nav) {
+        console.log('Nav found, forcing display');
+        nav.style.display = 'flex';
+        nav.style.opacity = '1';
+        nav.style.visibility = 'visible';
+      } else {
+        console.error('Nav element not found');
+      }
+    });
+  </script>
+</body>
+</html>
+
+
+
+
+
+
