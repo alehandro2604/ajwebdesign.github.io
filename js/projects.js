@@ -253,6 +253,41 @@ window.addEventListener('resize', () => {
   renderer.setSize(window.innerWidth, window.innerHeight);
 });
 
+// Mobile menu toggle with animation
+const menuToggle = document.querySelector('.menu-toggle');
+const navLinks = document.querySelector('.nav-links');
+
+menuToggle.addEventListener('click', () => {
+  menuToggle.classList.toggle('active');
+  navLinks.classList.toggle('active');
+  
+  // Prevent scrolling when menu is open
+  document.body.style.overflow = menuToggle.classList.contains('active') ? 'hidden' : '';
+});
+
+// Close mobile menu when clicking a link
+const navItems = document.querySelectorAll('.nav-links ul li a');
+navItems.forEach(item => {
+  item.addEventListener('click', () => {
+    if (navLinks.classList.contains('active')) {
+      menuToggle.classList.remove('active');
+      navLinks.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+  });
+});
+
+// Navigation scroll effect with threshold
+window.addEventListener('scroll', () => {
+  const nav = document.querySelector('nav');
+  if (window.scrollY > 30) {
+    nav.classList.add('nav-scrolled');
+  } else {
+    nav.classList.remove('nav-scrolled');
+  }
+});
+
+
 
 
 

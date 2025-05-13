@@ -24,6 +24,14 @@ document.addEventListener('DOMContentLoaded', function() {
   console.log('Timeline items found:', document.querySelectorAll('.timeline-item').length);
   console.log('Education items found:', document.querySelectorAll('.education-item').length);
 
+  // Force display of paragraph elements
+  const paragraphs = document.querySelectorAll('p');
+  paragraphs.forEach(paragraph => {
+    paragraph.style.display = 'block';
+    paragraph.style.opacity = '1';
+    paragraph.style.visibility = 'visible';
+  });
+
   // Force display of skills
   const skills = document.querySelectorAll('.skill');
   skills.forEach(skill => {
@@ -116,6 +124,19 @@ document.addEventListener('DOMContentLoaded', function() {
       scrollTrigger: {
         trigger: '.timeline',
         start: 'top 80%',
+        once: true
+      }
+    });
+    
+    // Add animation for timeline details
+    gsap.from('.timeline-details li', {
+      y: 20,
+      opacity: 0,
+      duration: 0.5,
+      stagger: 0.1,
+      scrollTrigger: {
+        trigger: '.timeline',
+        start: 'top 70%',
         once: true
       }
     });
@@ -219,6 +240,80 @@ gsap.from('nav', {
   }
 });
 
+// Mobile menu toggle with animation
+const menuToggle = document.querySelector('.menu-toggle');
+const navLinks = document.querySelector('.nav-links');
+
+menuToggle.addEventListener('click', () => {
+  menuToggle.classList.toggle('active');
+  navLinks.classList.toggle('active');
+  
+  // Prevent scrolling when menu is open
+  document.body.style.overflow = menuToggle.classList.contains('active') ? 'hidden' : '';
+});
+
+// Close mobile menu when clicking a link
+const navItems = document.querySelectorAll('.nav-links ul li a');
+navItems.forEach(item => {
+  item.addEventListener('click', () => {
+    if (navLinks.classList.contains('active')) {
+      menuToggle.classList.remove('active');
+      navLinks.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+  });
+});
+
+// Navigation scroll effect with threshold
+window.addEventListener('scroll', () => {
+  const nav = document.querySelector('nav');
+  if (window.scrollY > 30) {
+    nav.classList.add('nav-scrolled');
+  } else {
+    nav.classList.remove('nav-scrolled');
+  }
+});
+
+// Add this to your existing about.js file
+document.addEventListener('DOMContentLoaded', function() {
+  // Initialize GSAP animations
+  gsap.registerPlugin(ScrollTrigger);
+  
+  // Services section animations
+  const serviceItems = document.querySelectorAll('.service-item');
+  
+  // Set initial state
+  gsap.set(serviceItems, {
+    opacity: 0,
+    y: 50
+  });
+  
+  // Create staggered animation for service items
+  gsap.to(serviceItems, {
+    opacity: 1,
+    y: 0,
+    duration: 0.8,
+    stagger: 0.2,
+    ease: "power3.out",
+    scrollTrigger: {
+      trigger: ".services-section",
+      start: "top 75%",
+      toggleActions: "play none none none"
+    }
+  });
+  
+  // Add a subtle parallax effect to the section background
+  gsap.to('.services-section::before', {
+    y: -50,
+    ease: "none",
+    scrollTrigger: {
+      trigger: ".services-section",
+      start: "top bottom",
+      end: "bottom top",
+      scrub: true
+    }
+  });
+});
 
 
 

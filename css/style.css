@@ -12,6 +12,29 @@
   box-sizing: border-box;
 }
 
+html, body {
+  overflow-x: hidden;
+  width: 100%;
+  position: relative;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+}
+
+/* Hide webkit scrollbars */
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  display: none;
+}
+
+/* If you're using ScrollSmoother, add these styles */
+#smooth-wrapper {
+  overflow: hidden;
+}
+
+#smooth-content {
+  overflow: visible;
+}
+
 body {
   font-family: 'Poppins', sans-serif;
   background-color: var(--dark);
@@ -271,6 +294,35 @@ nav ul li a.active::before {
     font-size: 1.2rem;
     padding: 0.8rem 2rem;
   }
+
+  .hero-content {
+    width: 90%;
+    padding-left: 5%;
+  }
+
+  .cta-btn {
+    margin-left: 0;
+  }
+
+  .services, .featured-projects, .cta-section {
+    padding: 4rem 5%;
+  }
+
+  .projects-showcase {
+    grid-template-columns: 1fr;
+  }
+
+  h1 {
+    font-size: 2.5rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  .services h2, .featured-projects h2, .cta-section h2 {
+    font-size: 2rem;
+  }
 }
 
 .hero {
@@ -392,7 +444,7 @@ p {
   transform: translateY(-15px);
   box-shadow: 0 20px 40px rgba(108, 99, 255, 0.3);
 }
-
+z
 .service-card:hover::before {
   transform: scaleX(1);
 }
@@ -436,7 +488,7 @@ p {
 
 .projects-showcase {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 3rem;
   margin-bottom: 3rem;
 }
@@ -715,8 +767,117 @@ p {
   }
 }
 
+/* Featured Projects Section - Mobile Improvements */
+@media (max-width: 768px) {
+  .projects-showcase {
+    grid-template-columns: 1fr; /* Single column on mobile */
+    gap: 1.5rem; /* Reduced gap */
+  }
+  
+  .project-card {
+    max-width: 85%; /* Limit width on mobile */
+    margin: 0 auto; /* Center the cards */
+  }
+  
+  .project-info {
+    padding: 1.5rem; /* Slightly reduced padding */
+  }
+  
+  .project-info h3 {
+    font-size: 1.3rem; /* Smaller font size */
+  }
+  
+  .project-info p {
+    font-size: 0.9rem; /* Smaller font size */
+  }
+  
+  .view-all-btn {
+    padding: 0.8rem 1.6rem; /* Slightly smaller button */
+    font-size: 0.9rem;
+  }
+}
+
+/* Fix scrolling issues */
+html {
+  overflow-y: auto;
+  overflow-x: hidden;
+  height: 100%;
+}
+
+body {
+  overflow-x: hidden;
+  position: relative;
+  width: 100%;
+  height: auto;
+  min-height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* Remove any fixed height containers that might cause sticking */
+section, .hero, .services, .featured-projects, .cta-section {
+  position: relative;
+  width: 100%;
+  overflow: visible;
+}
+
+/* Ensure smooth transitions */
+* {
+  backface-visibility: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Fix for potential z-index stacking issues */
+.hero, .services, .featured-projects, .cta-section, footer {
+  z-index: 1;
+  position: relative;
+}
+
+/* Ensure nav has higher z-index */
+nav {
+  z-index: 1000;
+  position: fixed;
+}
+
+/* Reset scrolling behavior */
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  width: 100%;
+  height: 100%;
+}
 
 
 
+/* Fix for smooth scrolling */
+body {
+  position: relative;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
 
+/* Remove any transforms that might interfere with scrolling */
+section, .hero, .services, .featured-projects, .cta-section {
+  transform: translateZ(0); /* Force hardware acceleration */
+  will-change: transform; /* Hint for browser optimization */
+  position: relative;
+  width: 100%;
+}
+
+/* Remove any fixed positioning that might cause sticking */
+.fixed-element {
+  position: absolute;
+}
+
+/* Ensure content doesn't have fixed heights causing overflow */
+.content-container {
+  height: auto;
+  min-height: 100%;
+}
+
+/* Fix for potential z-index issues */
+nav {
+  z-index: 1000;
+}
 

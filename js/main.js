@@ -63,49 +63,61 @@ gsap.from('.cta-btn', {
   onComplete: () => gsap.to('.cta-btn', { opacity: 1 })
 });
 
-// 3D background with Three.js
-const scene = new THREE.Scene();
-const camera = new THREE.PerspectiveCamera(75, window.innerWidth / 2 / window.innerHeight, 0.1, 1000);
-const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
-renderer.setSize(window.innerWidth / 2, window.innerHeight);
-document.getElementById('hero-3d').appendChild(renderer.domElement);
-
-// Create a sphere with custom shader material
-const geometry = new THREE.SphereGeometry(3, 64, 64);
-const material = new THREE.MeshStandardMaterial({
-  color: 0x6c63ff,
-  metalness: 0.7,
-  roughness: 0.2,
-  wireframe: true
-});
-const sphere = new THREE.Mesh(geometry, material);
-scene.add(sphere);
-
-// Add lights
-const pointLight = new THREE.PointLight(0xffffff, 1);
-pointLight.position.set(0, 10, 10);
-scene.add(pointLight);
-
-const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
-scene.add(ambientLight);
-
-camera.position.z = 8;
-
-// Animation loop
-function animate() {
-  requestAnimationFrame(animate);
-  sphere.rotation.y += 0.005;
-  sphere.rotation.x += 0.002;
-  renderer.render(scene, camera);
-}
-animate();
-
-// Resize handler
-window.addEventListener('resize', () => {
-  camera.aspect = window.innerWidth / 2 / window.innerHeight;
-  camera.updateProjectionMatrix();
+// 3D background with Three.js - only initialize on desktop
+if (window.innerWidth > 768) {
+  const scene = new THREE.Scene();
+  const camera = new THREE.PerspectiveCamera(75, window.innerWidth / 2 / window.innerHeight, 0.1, 1000);
+  const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
   renderer.setSize(window.innerWidth / 2, window.innerHeight);
-});
+  
+  const heroElement = document.getElementById('hero-3d');
+  if (heroElement) {
+    heroElement.appendChild(renderer.domElement);
+    
+    // Create a sphere with custom shader material
+    const geometry = new THREE.SphereGeometry(3, 64, 64);
+    const material = new THREE.MeshStandardMaterial({
+      color: 0x6c63ff,
+      metalness: 0.7,
+      roughness: 0.2,
+      wireframe: true
+    });
+    const sphere = new THREE.Mesh(geometry, material);
+    scene.add(sphere);
+
+    // Add lights
+    const pointLight = new THREE.PointLight(0xffffff, 1);
+    pointLight.position.set(0, 10, 10);
+    scene.add(pointLight);
+
+    const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
+    scene.add(ambientLight);
+
+    camera.position.z = 8;
+
+    // Animation loop
+    function animate() {
+      requestAnimationFrame(animate);
+      sphere.rotation.y += 0.005;
+      sphere.rotation.x += 0.002;
+      renderer.render(scene, camera);
+    }
+    animate();
+
+    // Resize handler
+    window.addEventListener('resize', () => {
+      camera.aspect = window.innerWidth / 2 / window.innerHeight;
+      camera.updateProjectionMatrix();
+      renderer.setSize(window.innerWidth / 2, window.innerHeight);
+    });
+  }
+} else {
+  // For mobile, just hide the element
+  const heroElement = document.getElementById('hero-3d');
+  if (heroElement) {
+    heroElement.style.display = 'none';
+  }
+}
 
 // Navigation enhancements
 
@@ -231,6 +243,24 @@ gsap.from('.footer-info, .footer-newsletter', {
   }
 });
 
-
+// Update ScrollSmoother configuration
+if (typeof ScrollSmoother !== 'undefined') {
+  const smoother = ScrollSmoother.create({
+    smooth: 1.5,
+    effects: true,
+    normalizeScroll: true,
+    smoothTouch: 0, // Disable on touch devices
+    ignoreMobileResize: true,
+    allowNestedScroll: true,
+    preventDefault: true
+  });
+  
+  // Force update on window resize to prevent sticking
+  window.addEventListener('resize', () => {
+    setTimeout(() => {
+      smoother.refresh();
+    }, 200);
+  });
+}
 
 
