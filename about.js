@@ -114,20 +114,31 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // Timeline animations
   setTimeout(() => {
-    // Make timeline items visible without animations
-    const timelineItems = document.querySelectorAll('.timeline-item');
-    timelineItems.forEach(item => {
-      item.style.opacity = '1';
-      item.style.transform = 'none';
-      item.style.display = 'block';
+    gsap.from('.timeline-item', {
+      x: function(i) {
+        return i % 2 === 0 ? -100 : 100;
+      },
+      opacity: 0,
+      duration: 1,
+      stagger: 0.3,
+      scrollTrigger: {
+        trigger: '.timeline',
+        start: 'top 80%',
+        once: true
+      }
     });
     
-    // Make timeline details visible without animations
-    const timelineDetails = document.querySelectorAll('.timeline-details li');
-    timelineDetails.forEach(detail => {
-      detail.style.opacity = '1';
-      detail.style.transform = 'none';
-      detail.style.display = 'block';
+    // Add animation for timeline details
+    gsap.from('.timeline-details li', {
+      y: 20,
+      opacity: 0,
+      duration: 0.5,
+      stagger: 0.1,
+      scrollTrigger: {
+        trigger: '.timeline',
+        start: 'top 70%',
+        once: true
+      }
     });
   }, 500);
 
@@ -303,3 +314,6 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   });
 });
+
+
+

@@ -4,22 +4,43 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Projects | AJWebDesign</title>
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="css/projects.css">
+  <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="./css/projects.css">
+  <link rel="stylesheet" href="./css/mobile-animations.css">
+  
+  <!-- Simplified script loading - always load all libraries -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
+  
+  <!-- Ensure content visibility -->
+  <style>
+    /* Base visibility styles */
+    body * {
+      opacity: 1 !important;
+      visibility: visible !important;
+    }
+  </style>
 </head>
 <body>
+  <script src="./js/universal-fix.js"></script>
   <div class="cursor"></div>
   <nav>
     <div class="logo">AJWebDesign</div>
-    <ul>
-      <li><a href="index.html">Home</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="projects.html" class="active">Projects</a></li>
-      <li><a href="contact.html">Contact</a></li>
-    </ul>
+    <div class="menu-toggle">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <div class="nav-links">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="projects.html" class="active">Projects</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <a href="contact.html" class="nav-btn">Hire Me</a>
+    </div>
   </nav>
 
   <section class="projects-hero">
@@ -37,12 +58,15 @@
     <div class="project-item">
       <div class="project-image"></div>
       <div class="project-info">
-        <h3>E-Commerce Website</h3>
-        <p>A modern online store with responsive design and seamless checkout experience</p>
+        <h3>Football Booking Platform</h3>
+        <p>Interactive platform for booking football matches with 3D stadium visualization</p>
         <div class="project-tags">
-          <span>HTML/CSS</span>
-          <span>JavaScript</span>
-          <span>React</span>
+          <span class="tag-item">HTML5</span>
+          <span class="tag-item">CSS3</span>
+          <span class="tag-item">JavaScript</span>
+          <span class="tag-item">GSAP</span>
+          <span class="tag-item">Spline</span>
+          <span class="tag-item">Three.js</span>
         </div>
         <a href="#" class="project-btn">View Project</a>
       </div>
@@ -54,9 +78,11 @@
         <h3>Portfolio Template</h3>
         <p>Interactive portfolio with 3D elements and smooth animations</p>
         <div class="project-tags">
-          <span>HTML/CSS</span>
-          <span>Three.js</span>
-          <span>GSAP</span>
+          <span class="tag-item">HTML5</span>
+          <span class="tag-item">CSS3</span>
+          <span class="tag-item">JavaScript</span>
+          <span class="tag-item">Three.js</span>
+          <span class="tag-item">GSAP</span>
         </div>
         <a href="#" class="project-btn">View Project</a>
       </div>
@@ -68,9 +94,10 @@
         <h3>Restaurant Website</h3>
         <p>Elegant site with online reservations and interactive menu</p>
         <div class="project-tags">
-          <span>HTML/CSS</span>
-          <span>JavaScript</span>
-          <span>UI/UX</span>
+          <span class="tag-item">HTML5</span>
+          <span class="tag-item">CSS3</span>
+          <span class="tag-item">JavaScript</span>
+          <span class="tag-item">UI/UX</span>
         </div>
         <a href="#" class="project-btn">View Project</a>
       </div>
@@ -79,12 +106,15 @@
     <div class="project-item">
       <div class="project-image"></div>
       <div class="project-info">
-        <h3>Blog Platform</h3>
-        <p>Content management system with modern UI and responsive design</p>
+        <h3>E-Commerce Website</h3>
+        <p>Modern online store with smooth animations and interactive product showcase</p>
         <div class="project-tags">
-          <span>HTML/CSS</span>
-          <span>Node.js</span>
-          <span>MongoDB</span>
+          <span class="tag-item">HTML5</span>
+          <span class="tag-item">CSS3</span>
+          <span class="tag-item">JavaScript</span>
+          <span class="tag-item">GSAP</span>
+          <span class="tag-item">Three.js</span>
+          <span class="tag-item">Stripe</span>
         </div>
         <a href="#" class="project-btn">View Project</a>
       </div>
@@ -105,10 +135,3 @@
   <script src="js/projects.js"></script>
 </body>
 </html>
-
-
-
-
-
-
-
