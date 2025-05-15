@@ -950,18 +950,29 @@
   align-self: flex-start;
 }
 
-/* Disable animations on mobile devices for the timeline section */
-@media screen and (max-width: 768px) {
+@media (max-width: 768px) {
+  .timeline {
+    padding: 0 1rem;
+  }
+  .timeline::before {
+    left: 20px;
+    transform: none;
+  }
   .timeline-item {
-    animation: none !important;
-    transition: none !important;
+    width: 100%;
+    left: 0 !important;
+    margin-bottom: 1.5rem;
+    display: block;
   }
   .timeline-dot {
-    animation: none !important;
-    transition: none !important;
+    left: 10px;
+    right: auto;
+    top: 1.5rem;
+    transform: none;
   }
   .timeline-content {
-    animation: none !important;
-    transition: none !important;
+    margin-left: 40px !important;
+    margin-right: 0 !important;
+    width: auto;
   }
 }
