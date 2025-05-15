@@ -6,8 +6,6 @@
   <title>About | AJWebDesign</title>
   <link rel="stylesheet" href="./css/style.css">
   <link rel="stylesheet" href="./css/about.css">
-  <link rel="stylesheet" href="./css/mobile-animations.css">
-  <link rel="stylesheet" href="css/about.css?v=2">
   
   <!-- Simplified script loading - always load all libraries -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
@@ -138,30 +136,51 @@
 
   <section class="journey-section">
     <h2>My Journey</h2>
-    <div class="timeline">
-      <div class="timeline-item">
-        <div class="timeline-dot"></div>
-        <div class="timeline-content">
-          <h3>2024 - Present</h3>
-          <h4>iGaming Level 4 Advanced Diploma at MCAST</h4>
-          <p>Studying client-side scripting, databases, and web development while working with clients.</p>
+    <div class="timeline-desktop">
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <h3>2024 - Present</h3>
+            <h4>iGaming Level 4 Advanced Diploma at MCAST</h4>
+            <p>Studying client-side scripting, databases, and web development while working with clients.</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <h3>2023 - 2024</h3>
+            <h4>Level 3 Diploma in IT at MCAST</h4>
+            <p>Gained hands-on experience in information technology fundamentals and development.</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <h3>2020 - 2023</h3>
+            <h4>School IT Studies</h4>
+            <p>Began learning web development through school curriculum and personal projects.</p>
+          </div>
         </div>
       </div>
-      <div class="timeline-item">
-        <div class="timeline-dot"></div>
-        <div class="timeline-content">
-          <h3>2023 - 2024</h3>
-          <h4>Level 3 Diploma in IT at MCAST</h4>
-          <p>Gained hands-on experience in information technology fundamentals and development.</p>
-        </div>
+    </div>
+    
+    <!-- Mobile-only timeline -->
+    <div class="timeline-mobile">
+      <div class="mobile-timeline-item">
+        <div class="mobile-timeline-date">2024 - Present</div>
+        <div class="mobile-timeline-title">iGaming Level 4 Advanced Diploma at MCAST</div>
+        <div class="mobile-timeline-desc">Studying client-side scripting, databases, and web development while working with clients.</div>
       </div>
-      <div class="timeline-item">
-        <div class="timeline-dot"></div>
-        <div class="timeline-content">
-          <h3>2020 - 2023</h3>
-          <h4>School IT Studies</h4>
-          <p>Began learning web development through school curriculum and personal projects.</p>
-        </div>
+      <div class="mobile-timeline-item">
+        <div class="mobile-timeline-date">2023 - 2024</div>
+        <div class="mobile-timeline-title">Level 3 Diploma in IT at MCAST</div>
+        <div class="mobile-timeline-desc">Gained hands-on experience in information technology fundamentals and development.</div>
+      </div>
+      <div class="mobile-timeline-item">
+        <div class="mobile-timeline-date">2020 - 2023</div>
+        <div class="mobile-timeline-title">School IT Studies</div>
+        <div class="mobile-timeline-desc">Began learning web development through school curriculum and personal projects.</div>
       </div>
     </div>
   </section>
@@ -200,29 +219,3 @@
   <script src="js/skills-animation.js"></script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
